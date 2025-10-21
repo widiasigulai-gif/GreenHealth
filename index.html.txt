@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lingkungan Bersih, Hidup Lebih Sehat</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(46, 204, 113, 0.8), rgba(39, 174, 96, 0.8)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%2327ae60" width="1200" height="600"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 150px 20px 100px;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: white;
+            color: #27ae60;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Sections */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #27ae60;
+            margin-bottom: 40px;
+        }
+
+        /* About */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text {
+            padding: 20px;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            padding: 40px;
+            border-radius: 20px;
+            color: white;
+            text-align: center;
+        }
+
+        .about-image h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        /* Programs */
+        .programs {
+            background: #f8f9fa;
+        }
+
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .program-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .program-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .program-card h3 {
+            color: #27ae60;
+            margin-bottom: 15px;
+        }
+
+        /* Tips */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .tip-item {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #fff;
+        }
+
+        .tip-item h4 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Contact */
+        .contact {
+            background: #f8f9fa;
+        }
+
+        .contact-info {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .contact-info h3 {
+            color: #27ae60;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .contact-detail {
+            margin: 20px 0;
+            font-size: 1.1rem;
+        }
+
+        .contact-detail strong {
+            color: #27ae60;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 40px;
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background: #27ae60;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">🌱 Lingkungan Sehat</div>
+            <ul>
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#program">Program</a></li>
+                <li><a href="#tips">Tips</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>🌍 Lingkungan Bersih, Hidup Lebih Sehat</h1>
+        <p>Mari bersama-sama menciptakan lingkungan yang bersih dan sehat untuk kehidupan yang lebih baik</p>
+        <a href="#program" class="btn">Mulai Sekarang</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>Tentang Kami</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3 style="color: #27ae60; margin-bottom: 15px;">Visi Kami</h3>
+                <p style="margin-bottom: 20px;">
+                    Menciptakan kesadaran masyarakat tentang pentingnya menjaga kebersihan lingkungan 
+                    sebagai kunci utama untuk hidup yang lebih sehat dan berkualitas.
+                </p>
+                <h3 style="color: #27ae60; margin-bottom: 15px;">Misi Kami</h3>
+                <ul style="padding-left: 20px;">
+                    <li>Mengedukasi masyarakat tentang pentingnya lingkungan bersih</li>
+                    <li>Mengorganisir kegiatan bersih-bersih lingkungan</li>
+                    <li>Memberikan tips dan solusi praktis untuk hidup sehat</li>
+                    <li>Membangun komunitas peduli lingkungan</li>
+                </ul>
+            </div>
+            <div class="about-image">
+                <h3>Pencetus Program</h3>
+                <p style="font-size: 1.5rem; margin: 20px 0;">👤</p>
+                <h4 style="font-size: 1.8rem; margin-bottom: 10px;">Widia Pratiwi</h4>
+                <p style="opacity: 0.9;">
+                    "Mari kita mulai dari hal kecil untuk perubahan besar. 
+                    Lingkungan bersih adalah investasi kesehatan kita di masa depan."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="program" class="programs">
+        <h2>Program Kami</h2>
+        <div class="program-grid">
+            <div class="program-card">
+                <div class="program-icon">🧹</div>
+                <h3>Gotong Royong Bersih</h3>
+                <p>Program kebersihan lingkungan bersama warga setiap minggu untuk menciptakan lingkungan yang asri dan sehat.</p>
+            </div>
+            <div class="program-card">
+                <div class="program-icon">♻️</div>
+                <h3>Daur Ulang Sampah</h3>
+                <p>Edukasi dan praktik daur ulang sampah untuk mengurangi limbah dan menciptakan produk bernilai ekonomis.</p>
+            </div>
+            <div class="program-card">
+                <div class="program-icon">🌳</div>
+                <h3>Penghijauan</h3>
+                <p>Penanaman pohon dan tanaman hijau di lingkungan sekitar untuk udara yang lebih bersih dan segar.</p>
+            </div>
+            <div class="program-card">
+                <div class="program-icon">💧</div>
+                <h3>Air Bersih</h3>
+                <p>Kampanye penggunaan air bersih dan sanitasi yang baik untuk kesehatan keluarga.</p>
+            </div>
+            <div class="program-card">
+                <div class="program-icon">🎓</div>
+                <h3>Edukasi Lingkungan</h3>
+                <p>Seminar dan workshop tentang pentingnya menjaga kebersihan lingkungan untuk generasi muda.</p>
+            </div>
+            <div class="program-card">
+                <div class="program-icon">🏡</div>
+                <h3>Rumah Sehat</h3>
+                <p>Panduan menciptakan rumah yang sehat dengan ventilasi baik dan sanitasi yang memadai.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section id="tips">
+        <h2>Tips Lingkungan Bersih & Sehat</h2>
+        <div class="tips-grid">
+            <div class="tip-item">
+                <h4>✅ Buang Sampah pada Tempatnya</h4>
+                <p>Biasakan membuang sampah sesuai jenisnya: organik, anorganik, dan B3.</p>
+            </div>
+            <div class="tip-item">
+                <h4>✅ Kurangi Penggunaan Plastik</h4>
+                <p>Gunakan tas belanja yang dapat digunakan kembali dan hindari plastik sekali pakai.</p>
+            </div>
+            <div class="tip-item">
+                <h4>✅ Hemat Air</h4>
+                <p>Matikan keran saat tidak digunakan dan perbaiki kebocoran segera.</p>
+            </div>
+            <div class="tip-item">
+                <h4>✅ Kompos Sampah Organik</h4>
+                <p>Ubah sampah dapur menjadi kompos untuk pupuk tanaman.</p>
+            </div>
+            <div class="tip-item">
+                <h4>✅ Tanam Tanaman</h4>
+                <p>Tanam pohon atau tanaman hias untuk udara lebih segar.</p>
+            </div>
+            <div class="tip-item">
+                <h4>✅ Bersihkan Lingkungan Rutin</h4>
+                <p>Luangkan waktu setiap minggu untuk membersihkan lingkungan sekitar.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Hubungi Kami</h2>
+        <div class="contact-info">
+            <h3>Bergabunglah Bersama Kami!</h3>
+            <p style="margin-bottom: 30px;">
+                Ingin tahu lebih lanjut atau berpartisipasi dalam program kami? 
+                Jangan ragu untuk menghubungi kami.
+            </p>
+            <div class="contact-detail">
+                <strong>Nama:</strong>
+                Widia Pratiwi
+            </div>
+            <div class="contact-detail">
+                <strong>WhatsApp / Telepon:</strong>
+                085377358573
+            </div>
+            <a href="https://wa.me/6285377358573?text=Halo%20Ibu%20Widia,%20saya%20ingin%20bergabung%20dengan%20program%20Lingkungan%20Bersih,%20Hidup%20Lebih%20Sehat" 
+               class="whatsapp-btn" target="_blank">
+                💬 Chat via WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Lingkungan Bersih, Hidup Lebih Sehat | Pencetus: Widia Pratiwi</p>
+        <p style="margin-top: 10px; font-size: 0.9rem;">
+            "Kebersihan adalah sebagian dari iman. Mari jaga lingkungan kita!"
+        </p>
+    </footer>
+</body>
+</html>
